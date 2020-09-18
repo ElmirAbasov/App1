@@ -1,5 +1,6 @@
 package com.example.projectapp1
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -17,6 +18,10 @@ class MainActivity : AppCompatActivity() {
 
             if(et_name.text.toString().isEmpty()){
                 Toast.makeText(this, "Please enter your name", Toast.LENGTH_SHORT).show()
+            }else{
+                val intent = Intent(this, QuestionsActivity::class.java)
+                startActivity(intent)
+                finish()
             }
         }
 

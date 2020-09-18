@@ -8,7 +8,7 @@ object Constants{
         val q1 = Question(
             1,
             "What is the capital of Chile?",
-            R.drawable.ic_chile,
+            R.drawable.r_chile,
             "Baku",
             "Abuja",
             "Beirut",
@@ -22,7 +22,7 @@ object Constants{
         val q2 = Question(
             2,
             "What is the capital of Iceland?",
-            R.drawable.ic_iceland,
+            R.drawable.r_iceland,
             "Helsinki",
             "Dublin",
             "Reykjavik",
@@ -36,7 +36,7 @@ object Constants{
         val q3 = Question(
             3,
             "What nut is in the middle of a Ferrero Rocher?",
-            R.drawable.ic_ferrero,
+            R.drawable.r_fereo,
             "Walnut",
             "Almonds",
             "Cashew",
@@ -50,7 +50,7 @@ object Constants{
         val q4 = Question(
             4,
             "How many valves does the heart have?",
-            R.drawable.ic_heart,
+            R.drawable.r_heart,
             "One",
             "Two",
             "Three",
@@ -64,7 +64,7 @@ object Constants{
         val q5 = Question(
             5,
             "What does He stand for on the periodic table?",
-            R.drawable.ic_helium,
+            R.drawable.r_helium,
             "Helium",
             "Silver",
             "Quicksilver",
@@ -78,7 +78,7 @@ object Constants{
         val q6 = Question(
             3,
             "What's a baby rabbit called?",
-            R.drawable.ic_kit,
+            R.drawable.r_kit,
             "Coochie",
             "Piglet",
             "Puppy",
@@ -92,7 +92,7 @@ object Constants{
         val q7 = Question(
             7,
             "Which nuts are in marzipan?",
-            R.drawable.ic_marzipan,
+            R.drawable.r_marzipan,
             "Walnuts",
             "Almonds",
             "Pistachio",
@@ -106,7 +106,7 @@ object Constants{
         val q8 = Question(
             8,
             "What is Japanese sake made of?",
-            R.drawable.ic_sake,
+            R.drawable.r_sake,
             "Potato",
             "Wholegrain",
             "Rice",
@@ -120,7 +120,7 @@ object Constants{
         val q9 = Question(
             9,
             "What was Britney Spears' first single called?",
-            R.drawable.ic_venyl_correct,
+            R.drawable.r_vinyl,
             "One More Time",
             "Thank You",
             "Betrayal",
@@ -134,7 +134,7 @@ object Constants{
         val q10 = Question(
             10,
             "What is the national flower of Japan?",
-            R.drawable.ic_flower,
+            R.drawable.r_flower,
             "Rose",
             "Hortensia",
             "Lotus Flower",
