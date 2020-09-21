@@ -22,12 +22,14 @@
                 android:gravity="center"
                 android:textColor="#363A43"
                 android:text="What is the capital of Chile?"/>
+
         <ImageView
             android:id="@+id/iv_image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
             android:layout_marginTop="16dp"
             android:src="@drawable/r_chile" />
+
         <LinearLayout
             android:id="@+id/ll_progress_details"
             android:layout_width="match_parent"
@@ -70,7 +72,43 @@
             android:padding="15dp"
             android:textColor="#6D6E71"
             android:textSize="18sp"
+            tools:text="Mapple" />
+
+        <TextView
+            android:id="@+id/tv_option_two"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/default_option_border_bg"
+            android:gravity="center"
+            android:padding="15dp"
+            android:textColor="#6D6E71"
+            android:textSize="18sp"
             tools:text="Apple" />
+
+        <TextView
+            android:id="@+id/tv_option_three"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/default_option_border_bg"
+            android:gravity="center"
+            android:padding="15dp"
+            android:textColor="#6D6E71"
+            android:textSize="18sp"
+            tools:text="Orange" />
+
+        <TextView
+            android:id="@+id/tv_option_four"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/default_option_border_bg"
+            android:gravity="center"
+            android:padding="15dp"
+            android:textColor="#6D6E71"
+            android:textSize="18sp"
+            tools:text="Clapple" />
 
     </LinearLayout>
 
