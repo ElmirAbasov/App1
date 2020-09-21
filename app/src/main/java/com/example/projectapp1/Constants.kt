@@ -10,7 +10,7 @@ object Constants{
             "What is the capital of Chile?",
             R.drawable.r_chile,
             "Baku",
-            "Abuja",
+            "Santiago",
             "Beirut",
             "Canberra",
             1
