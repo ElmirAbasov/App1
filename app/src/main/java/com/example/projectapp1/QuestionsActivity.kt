@@ -43,7 +43,7 @@ class QuestionsActivity : AppCompatActivity(), View.OnClickListener {
     private fun setQuestion()  {
 
         mCurrentPosition = 1
-        val question: mQuestionsList!![mCurrentposition -1]
+        val question = mQuestionsList!![mCurrentPosition -1]
 
         progressBar.progress = mCurrentPosition
         tv_progress.text = "$mCurrentPosition" + "/" + progressBar.max
@@ -75,10 +75,21 @@ class QuestionsActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View?)     {
-        TODO("not implemented")
+        when(v?.id){
+            R.id.tv_option_one ->{
+                selectedOptionView(tv_option_one, 1)
+            }
+        }
     }
         private fun selectedOptionView(tv: TextView, selectedOptionNumber: Int) {
             defaultOptionsView()
             mSelectedOptionPosition = selectedOptionNumber
+
+            tv.setTextColor(Color.parseColor("#363A43"))
+            tv.setTypeface(tv.typeface, Typeface.BOLD)
+            tv.background = ContextCompat.getDrawable(
+                this,
+                R.drawable.selected_option_border_bg
+            )
         }
 }
