@@ -76,8 +76,18 @@ class QuestionsActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View?)     {
         when(v?.id){
-            R.id.tv_option_one ->{
+            R.id.tv_option_one -> {
                 selectedOptionView(tv_option_one, 1)
+            }
+            R.id.tv_option_two -> {
+                selectedOptionView(tv_option_two, 2)
+            }
+            R.id.tv_option_three -> {
+                selectedOptionView(tv_option_three, 3)
+            }
+            R.id.tv_option_four -> {
+                selectedOptionView(tv_option_four, 4)
+
             }
         }
     }
