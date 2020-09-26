@@ -31,6 +31,7 @@ class QuestionsActivity : AppCompatActivity(), View.OnClickListener {
         tv_option_two.setOnClickListener(this)
         tv_option_three.setOnClickListener(this)
         tv_option_four.setOnClickListener(this)
+         btn_submit.setOnClickListener(this)
 
 
          mCurrentPosition = 1
@@ -88,6 +89,33 @@ class QuestionsActivity : AppCompatActivity(), View.OnClickListener {
             R.id.tv_option_four -> {
                 selectedOptionView(tv_option_four, 4)
 
+            }
+            R.id.btn_submit -> {
+
+            }
+        }
+    }
+    private fun answerView(answer: Int, drawableView: Int){
+        when(answer) {
+            1 ->{
+                tv_option_one.background = ContextCompat.getDrawable(
+                    this, drawableView
+                )
+            }
+            2 ->{
+                tv_option_two.background = ContextCompat.getDrawable(
+                    this, drawableView
+                )
+            }
+            3 ->{
+                tv_option_three.background = ContextCompat.getDrawable(
+                    this, drawableView
+                )
+            }
+            4 ->{
+                tv_option_four.background = ContextCompat.getDrawable(
+                    this, drawableView
+                )
             }
         }
     }
