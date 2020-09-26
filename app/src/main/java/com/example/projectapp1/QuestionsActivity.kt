@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.activity_questions.*
 
@@ -91,6 +92,25 @@ class QuestionsActivity : AppCompatActivity(), View.OnClickListener {
 
             }
             R.id.btn_submit -> {
+                if(mSelectedOptionPosition ==0) {
+                    mCurrentPosition ++
+
+                    when{
+                        mCurrentPosition <= mQuestionsList!!.size ->{
+                            setQuestion()
+                        } else ->{
+                        Toast.makeText(this,
+                            "Well done!",
+                            Toast.LENGTH_SHORT).show()
+                    }
+                    }
+                }else{
+                    val question = mQuestionsList?.get(mCurrentPosition -1)
+                    if(question!!.correctAnswer != mSelectedOptionPosition){
+                        answerView(mSelectedOptionPosition, R.drawable.wrong_answer_border_bg)
+                    }
+                    answerView(question.correctAnswer, R.drawable.correct_option_border_bg)
+                }
 
             }
         }
