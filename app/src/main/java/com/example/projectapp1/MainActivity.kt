@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity() {
 
         window.decorView.systemUiVisibility= View.SYSTEM_UI_FLAG_FULLSCREEN
 
+
         btn_start.setOnClickListener() {
 
             if(et_name.text.toString().isEmpty()){
@@ -24,7 +25,9 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
                 finish()
             }
+
         }
+
 
     }
 }

@@ -13,8 +13,10 @@
             android:screenOrientation="portrait"
             android:theme="@style/NoActionBarTheme">
 
+
         </activity>
         <activity android:name=".QuestionsActivity"
+            android:theme="@style/NoActionBarTheme"
             android:screenOrientation="portrait">
         </activity>
 
