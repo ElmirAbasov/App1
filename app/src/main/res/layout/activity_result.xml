@@ -20,11 +20,11 @@
         android:textColor="@android:color/black"
         android:textSize="25sp"
         android:textStyle="bold" />
-    
+
     <ImageView
         android:id="@+id/iv_smiley_ball"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="353dp"
         android:contentDescription="image"
         android:src="@drawable/ic_ball_smiley" />
 

@@ -1,16 +1,17 @@
 package com.example.projectapp1
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import android.os.CountDownTimer
 import android.view.View
 import android.widget.TextView
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.activity_questions.*
+
 
 class QuestionsActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -19,6 +20,8 @@ class QuestionsActivity : AppCompatActivity(), View.OnClickListener {
     private var mSelectedOptionPosition : Int = 0
     private var mCorrectAnswers: Int = 0
     private var mUserName: String? = null
+
+
 
 
      override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,15 +44,11 @@ class QuestionsActivity : AppCompatActivity(), View.OnClickListener {
 
 
          mCurrentPosition = 1
-         val question: Question? = mQuestionsList!![mCurrentPosition -1]
-
-
-
 
     }
     private fun setQuestion()  {
 
-        val question = mQuestionsList!![mCurrentPosition -1]
+        val question = mQuestionsList!![mCurrentPosition - 1]
 
         defaultOptionsView()
 
@@ -104,32 +103,33 @@ class QuestionsActivity : AppCompatActivity(), View.OnClickListener {
 
             }
             R.id.btn_submit -> {
-                if(mSelectedOptionPosition ==0) {
-                    mCurrentPosition ++
+                if (mSelectedOptionPosition == 0) {
+                    mCurrentPosition++
 
-                    when{
-                        mCurrentPosition <= mQuestionsList!!.size ->{
+                    when {
+                        mCurrentPosition <= mQuestionsList!!.size -> {
                             setQuestion()
-                        } else ->{
-                            val intent = Intent(this,ResultActivity::class.java)
-                        intent.putExtra(Constants.USER_NAME, mUserName)
-                        intent.putExtra(Constants.CORRECT_ANSWERS, mCorrectAnswers)
-                        intent.putExtra(Constants.TOTAL_QUESTIONS, mQuestionsList!!.size)
-                        startActivity(intent)
+                        }
+                        else -> {
+                            val intent = Intent(this, ResultActivity::class.java)
+                            intent.putExtra(Constants.USER_NAME, mUserName)
+                            intent.putExtra(Constants.CORRECT_ANSWERS, mCorrectAnswers)
+                            intent.putExtra(Constants.TOTAL_QUESTIONS, mQuestionsList!!.size)
+                            startActivity(intent)
+                        }
                     }
-                    }
-                }else{
-                    val question = mQuestionsList?.get(mCurrentPosition -1)
-                    if(question!!.correctAnswer != mSelectedOptionPosition){
+                } else {
+                    val question = mQuestionsList?.get(mCurrentPosition - 1)
+                    if (question!!.correctAnswer != mSelectedOptionPosition) {
                         answerView(mSelectedOptionPosition, R.drawable.wrong_answer_border_bg)
-                    }else{
+                    } else {
                         mCorrectAnswers++
                     }
                     answerView(question.correctAnswer, R.drawable.correct_option_border_bg)
 
-                    if(mCurrentPosition == mQuestionsList!!.size){
+                    if (mCurrentPosition == mQuestionsList!!.size) {
                         btn_submit.text = "DONE"
-                    }else{
+                    } else {
                         btn_submit.text = "NEXT QUESTION"
                     }
                     mSelectedOptionPosition = 0
@@ -140,28 +140,29 @@ class QuestionsActivity : AppCompatActivity(), View.OnClickListener {
     }
     private fun answerView(answer: Int, drawableView: Int){
         when(answer) {
-            1 ->{
+            1 -> {
                 tv_option_one.background = ContextCompat.getDrawable(
                     this, drawableView
                 )
             }
-            2 ->{
+            2 -> {
                 tv_option_two.background = ContextCompat.getDrawable(
                     this, drawableView
                 )
             }
-            3 ->{
+            3 -> {
                 tv_option_three.background = ContextCompat.getDrawable(
                     this, drawableView
                 )
             }
-            4 ->{
+            4 -> {
                 tv_option_four.background = ContextCompat.getDrawable(
                     this, drawableView
                 )
             }
         }
     }
+    //a function to set default option view when the new question is loaded or when the answer answer is reselected
         private fun selectedOptionView(tv: TextView, selectedOptionNumber: Int) {
             defaultOptionsView()
             mSelectedOptionPosition = selectedOptionNumber

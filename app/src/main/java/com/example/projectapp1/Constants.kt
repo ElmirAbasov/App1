@@ -80,7 +80,7 @@ object Constants{
 
         //6
         val q6 = Question(
-            3,
+            6,
             "What's a baby rabbit called?",
             R.drawable.r_kit,
             "Coochie",
