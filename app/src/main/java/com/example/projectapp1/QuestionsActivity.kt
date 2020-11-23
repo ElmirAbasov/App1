@@ -11,6 +11,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.activity_questions.*
+import kotlin.coroutines.CoroutineContext
 
 
 class QuestionsActivity : AppCompatActivity(), View.OnClickListener {
@@ -22,11 +23,14 @@ class QuestionsActivity : AppCompatActivity(), View.OnClickListener {
     private var mUserName: String? = null
 
 
-
-
      override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_questions)
+
+
+
+
+
 
          mUserName = intent.getStringExtra(Constants.USER_NAME)
 
@@ -174,4 +178,6 @@ class QuestionsActivity : AppCompatActivity(), View.OnClickListener {
                 R.drawable.selected_option_border_bg
             )
         }
+
+
 }
