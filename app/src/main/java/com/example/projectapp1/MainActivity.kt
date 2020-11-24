@@ -17,15 +17,15 @@ import kotlin.concurrent.thread
 class MainActivity : AppCompatActivity() {
 
 
-    private lateinit var job: Job
+ /*   private lateinit var job: Job
     val coroutineContext: CoroutineContext
-        get() = Dispatchers.Main + job
+        get() = Dispatchers.Main + job  */
     private lateinit var db : AppDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-       job = Job()
+    //   job = Job()
 
         thread{
             val db = Room.databaseBuilder(
