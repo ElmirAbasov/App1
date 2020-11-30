@@ -7,3 +7,5 @@ import androidx.room.PrimaryKey
 @Entity
 data class User(@PrimaryKey(autoGenerate = true) val id: Int,
     @ColumnInfo(name = "USERNAME") val name: String?)
+    // to save points
+ //   @ColumnInfo(point = "POINTS" ) val point: Int?)
