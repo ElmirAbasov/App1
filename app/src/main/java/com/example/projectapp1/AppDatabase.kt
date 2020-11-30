@@ -1,17 +1,13 @@
 package com.example.projectapp1
 
-import android.content.ClipData
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import se.iths.au20.au20roomintro.User
-
-import se.iths.au20.au20roomintro.UserDao
 
 @Database(entities = arrayOf(User::class), version = 1)
 abstract class AppDatabase : RoomDatabase() {
-    abstract fun userDao(): UserDao
+    abstract val userDao : UserDao
 
     companion object {
 
@@ -26,7 +22,7 @@ abstract class AppDatabase : RoomDatabase() {
                     instance = Room.databaseBuilder(
                         context.applicationContext,
                         AppDatabase::class.java,
-                        "words_database"
+                        "userid_database"
                     )
                         .fallbackToDestructiveMigration()
                         .build()

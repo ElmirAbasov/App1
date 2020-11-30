@@ -3,44 +3,58 @@ package com.example.projectapp1
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import android.view.MotionEvent
 import android.view.View
+import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.widget.AppCompatEditText
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlin.coroutines.CoroutineContext
 import androidx.room.Room
 import kotlinx.coroutines.*
-import se.iths.au20.au20roomintro.User
 import kotlin.concurrent.thread
+import kotlin.coroutines.CoroutineContext
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), CoroutineScope {
 
 
- /*   private lateinit var job: Job
-    val coroutineContext: CoroutineContext
-        get() = Dispatchers.Main + job  */
-    private lateinit var db : AppDatabase
+    private lateinit var job : Job
+    override val coroutineContext: CoroutineContext
+        get() = Dispatchers.Main + job
+
+ //private lateinit var user : User
+   // override val coroutineContext: CoroutineContext
+       // get() = Dispatchers.Main + user
+
+    var userList : UserList? = null
+    lateinit var editText : EditText
+    var currentUser : User? = null
+    private lateinit var db  : AppDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-    //   job = Job()
+       job = Job()
 
-        thread{
-            val db = Room.databaseBuilder(
-                applicationContext,
-                AppDatabase::class.java, "database-name"
-            ).build()  // 1
+        db = AppDatabase.getInstance(this)
 
-            db.userDao().insertAll(User(1, "Elmir", "Abasov")) // 2
+        addNewUser(User(0, "Elmir"))
+        addNewUser(User(0, "Wedieu"))
+        addNewUser(User(0, "Udde"))
+
+
+
+        editText = findViewById(R.id.et_name)
+
+        //loadNewWord()
+
+        loadAllUsers()
+
+        textView.setOnClickListener {
+
         }
 
 
-
-        db = Room.databaseBuilder(applicationContext, AppDatabase::class.java, "name-point")
-            .fallbackToDestructiveMigration()
-            .build()
 
 
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
@@ -61,7 +75,64 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-}
+    fun loadAllUsers() {
+        val words = async(Dispatchers.IO) {
+            db.userDao.getAll()
+        }
 
+        launch {
+            val list = words.await().toMutableList()
+            userList = UserList(list)
+            loadNewUser()
+        }
+
+    }
+
+
+    fun addNewUser(user :User) {
+        userList?.addUser(user)
+
+        launch(Dispatchers.IO) {
+            db.userDao.insert(user)
+        }
+    }
+
+    fun loadNewUser() {
+        currentUser =userList?.getNewUser()
+
+        if (currentUser == null)
+            return
+
+      //  textView.text = currentUser?.
+    }
+
+   // fun revealTranslation() {
+    //    textView.text = currentUser?.swedish
+   // }
+
+  //  override fun onTouchEvent(event: MotionEvent?): Boolean {
+    //    if (event?.action == MotionEvent.ACTION_UP ) {
+      //      loadNewUser()
+      //  }
+       // return true
+    }
+
+
+
+/*   thread{
+            val db = Room.databaseBuilder(
+                applicationContext,
+                AppDatabase::class.java, "database-name"
+            ).build()  // 1
+
+            db.userDao().insertAll(User(1, "Elmir")) // 2
+        }
+
+
+
+        db = Room.databaseBuilder(applicationContext, AppDatabase::class.java, "USERNAME")
+            .fallbackToDestructiveMigration()
+            .build()
+*/
 
 
