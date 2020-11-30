@@ -38,9 +38,9 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
 
         db = AppDatabase.getInstance(this)
 
-        addNewUser(User(0, "Elmir"))
+     /*   addNewUser(User(0, "Elmir"))
         addNewUser(User(0, "Wedieu"))
-        addNewUser(User(0, "Udde"))
+        addNewUser(User(0, "Udde")) */
 
 
 
@@ -60,11 +60,13 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
 
 
+
         btn_start.setOnClickListener() {
 
             if (et_name.text.toString().isEmpty()) {
                 Toast.makeText(this, "Please enter your name", Toast.LENGTH_SHORT).show()
             } else {
+
                 val intent = Intent(this, QuestionsActivity::class.java)
                 intent.putExtra(Constants.USER_NAME, et_name.text.toString())
                 startActivity(intent)
