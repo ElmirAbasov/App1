@@ -3,9 +3,11 @@ package com.example.projectapp1
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatEditText
 import kotlinx.android.synthetic.main.activity_main.*
@@ -17,7 +19,7 @@ import kotlin.coroutines.CoroutineContext
 
 class MainActivity : AppCompatActivity(), CoroutineScope {
 
-
+    lateinit var db : AppDatabase
     private lateinit var job : Job
     override val coroutineContext: CoroutineContext
         get() = Dispatchers.Main + job
@@ -29,21 +31,29 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
     var userList : UserList? = null
     lateinit var editText : EditText
     var currentUser : User? = null
-    private lateinit var db  : AppDatabase
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
        job = Job()
-
-        db = AppDatabase.getInstance(this)
-
-     /*   addNewUser(User(0, "Elmir"))
+        db = AppDatabase.invoke(this)
+        var list = listOf<User>()
+    CoroutineScope(Dispatchers.IO).async {
+        list = db.userDao.getAll()
+        var names = ""
+        list.forEach {
+            Log.d("!!!", it.name!!)
+            names += it.name+"\n"
+        }
+        /* addNewUser(User(0, "Elmir"))
         addNewUser(User(0, "Wedieu"))
-        addNewUser(User(0, "Udde")) */
+        addNewUser(User(0, "Udde"))
 
+        */
 
-
+        tv_users.text = names
+    }
         editText = findViewById(R.id.et_name)
 
         //loadNewWord()

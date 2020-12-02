@@ -26,7 +26,7 @@ class ResultActivity : AppCompatActivity(), CoroutineScope {
         setContentView(R.layout.activity_result)
         job = Job()
 
-        db = AppDatabase.getInstance(this)
+        db = AppDatabase(this)
 
         window.decorView.systemUiVisibility= View.SYSTEM_UI_FLAG_FULLSCREEN
 

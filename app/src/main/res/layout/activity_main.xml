@@ -85,8 +85,15 @@
 
     </androidx.cardview.widget.CardView>
 
+    <TextView
+        android:id="@+id/tv_users"
+        android:layout_width="match_parent"
+        android:layout_height="219dp"
+        android:text="Users"
+        android:textColor="@android:color/white" />
 
-    </LinearLayout>
+
+</LinearLayout>
 
 
 
